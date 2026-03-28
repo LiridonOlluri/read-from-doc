@@ -11,7 +11,7 @@ from . import session_store as store
 from ..models import ChatMessage, ChatResponse, SourceInfo
 
 TOP_K_RETRIEVE = 20
-TOP_N_RERANK = 5
+TOP_N_RERANK = 10
 
 
 def query(session_id: str, message: str, history: List[ChatMessage]) -> ChatResponse:
@@ -83,8 +83,13 @@ def query(session_id: str, message: str, history: List[ChatMessage]) -> ChatResp
             "role": "system",
             "content": (
                 "You are a helpful assistant that answers questions based on the user's "
-                "Google Drive documents. Always cite the document source when possible. "
-                "If the documents don't contain enough information, say so clearly."
+                "Google Drive documents provided below. "
+                "ALWAYS use the content from the documents to answer — even if they contain "
+                "code snippets, links, or partial information, extract and explain what is there. "
+                "Summarize, list, explain or describe what you find in the documents. "
+                "Never say you cannot find information if documents are provided — instead, "
+                "work with whatever content is available and give the most useful answer possible. "
+                "Cite the document file name when referencing specific content."
             ),
         }
     ]
