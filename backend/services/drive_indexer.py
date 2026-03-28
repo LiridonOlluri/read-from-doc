@@ -13,9 +13,9 @@ import chromadb
 import cohere
 from googleapiclient.http import MediaIoBaseDownload
 
-from utils.chunker import chunk_text
-from utils.gdrive_auth import build_drive_service
-import services.session_store as store
+from ..utils.chunker import chunk_text
+from ..utils.gdrive_auth import build_drive_service
+from . import session_store as store
 
 # File types we can handle
 GOOGLE_WORKSPACE_EXPORT = {

@@ -7,8 +7,8 @@ from typing import List
 
 import cohere
 
-import services.session_store as store
-from models import ChatMessage, ChatResponse, SourceInfo
+from . import session_store as store
+from ..models import ChatMessage, ChatResponse, SourceInfo
 
 TOP_K_RETRIEVE = 20
 TOP_N_RERANK = 5

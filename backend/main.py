@@ -7,8 +7,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-import services.session_store as store
-from models import (
+from . import services
+from . import models
+from .services import session_store as store
+from .models import (
     SetupRequest,
     SetupResponse,
     StatusResponse,
@@ -16,8 +18,8 @@ from models import (
     ChatRequest,
     ChatResponse,
 )
-from services.drive_indexer import start_indexing
-from services.rag_pipeline import query as rag_query
+from .services.drive_indexer import start_indexing
+from .services.rag_pipeline import query as rag_query
 
 
 @asynccontextmanager
