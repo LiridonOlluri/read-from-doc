@@ -1,0 +1,112 @@
+.message {
+  display: flex;
+  gap: 12px;
+  max-width: 820px;
+  width: 100%;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.user      { align-self: flex-end;   flex-direction: row-reverse; }
+.assistant { align-self: flex-start; }
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.avatarUser { background: var(--accent);   color: #fff; }
+.avatarBot  { background: var(--surface2); color: var(--accent); }
+
+.bubble {
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 660px;
+}
+
+.bubbleUser {
+  background: var(--surface2);
+}
+
+.bubbleBot {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.content p { margin-bottom: 8px; }
+.content p:last-child { margin-bottom: 0; }
+.content code {
+  background: var(--surface2);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.83em;
+}
+
+/* ── Sources ── */
+.sources {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.sourcesLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 7px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: rgba(124, 106, 247, 0.12);
+  border: 1px solid rgba(124, 106, 247, 0.25);
+  color: var(--accent-h);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  position: relative;
+  cursor: default;
+  user-select: none;
+}
+
+.chip:hover .tooltip { display: block; }
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  width: 280px;
+  max-width: 90vw;
+  z-index: 50;
+  line-height: 1.5;
+  white-space: normal;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
